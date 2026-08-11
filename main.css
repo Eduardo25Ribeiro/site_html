@@ -318,12 +318,6 @@ th, td{
     padding: 1.5rem;
 }
 
-
-
-main, header{
-    display: none;
-}
-
 .popup {
   display: none;
   position: fixed;
