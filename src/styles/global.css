@@ -1,0 +1,391 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+:root {
+  --header: #d6d6d6;
+  --texto-principal: #433e3e;
+  --texto-hover: #656161;
+  --background-pagina: #fff;
+  --cor-fundo-tema: #fff;
+}
+
+body.modo-escuro {
+  --header: #1a1a1a;
+  --texto-principal: #f0f0f0;
+  --texto-hover: #aaa;
+  --background-pagina: #121212;
+  --cor-fundo-tema: #333;
+}
+
+body {
+  min-width: 320px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.6rem;
+  background-color: var(--background-pagina);
+  color: var(--texto-principal);
+  transition: background 0.3s ease-in 0.1s;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Navegação */
+header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 1000;
+}
+
+nav > ul,
+nav .nav-links {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: var(--header);
+  justify-content: space-between;
+  padding: 1.8rem 3rem;
+  list-style: none;
+}
+
+nav .nav-links {
+  width: auto;
+  gap: 2rem;
+  padding: 0;
+}
+
+nav #config {
+  position: relative;
+}
+
+nav #config button {
+  display: flex;
+  align-items: center;
+  padding: 0.2rem;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+nav #config img {
+  width: 1.5rem;
+}
+
+body.modo-escuro #config img {
+  filter: invert(1);
+}
+
+nav #config ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: max-content;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.2rem;
+  list-style: none;
+  background-color: var(--cor-fundo-tema);
+  border-radius: 1rem;
+  box-shadow: 0 0.21rem 0.4rem rgb(0 0 0 / 15%);
+}
+
+nav #config:hover ul,
+nav #config:focus-within ul {
+  display: flex;
+}
+
+nav a,
+nav #tema {
+  display: inline-block;
+  transition: color 0.1s ease-in, transform 0.1s ease-in;
+}
+
+nav a:hover,
+nav #tema:hover {
+  color: var(--texto-hover);
+  transform: scale(1.05);
+}
+
+nav #tema {
+  border: 0;
+  background: transparent;
+  color: var(--texto-principal);
+  white-space: nowrap;
+  cursor: pointer;
+  font: inherit;
+}
+
+/* Estrutura das páginas */
+main {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding-top: 7rem;
+}
+
+main#coluna {
+  flex-direction: column;
+}
+
+.main_comparacao {
+  flex-flow: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.container-padrao {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+.container-padrao img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.container-padrao img:hover {
+  transform: scale(1.08);
+}
+
+.fora {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3.5rem;
+  padding: 4rem 2rem;
+}
+
+.cards {
+  position: relative;
+  width: 30rem;
+  height: 40rem;
+  cursor: pointer;
+}
+
+.cards figure {
+  width: 100%;
+  height: 100%;
+}
+
+.cards figure img,
+.cards > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.cards > img {
+  max-width: 25rem;
+}
+
+.cards .card-description {
+  display: none;
+}
+
+.cards:hover .card-description,
+.cards:focus-within .card-description {
+  display: block;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  width: 90%;
+  transform: translateX(-50%);
+}
+
+.cards:hover figure img {
+  transform: scale(1.1);
+}
+
+.cards.iphone figure img {
+  padding-top: 1rem;
+}
+
+.brand-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.brand-card #sansung-logo {
+  width: 15rem;
+  height: auto;
+}
+
+.brand-card #apple-logo {
+  width: 10rem;
+  height: auto;
+}
+
+.divisor {
+  border-left: 0.5rem solid var(--header);
+  height: 30rem;
+}
+
+main p {
+  max-width: 30rem;
+  line-height: 1.5;
+}
+
+footer {
+  width: 100%;
+  margin-top: 2.5rem;
+  padding: 2rem;
+  background-color: var(--header);
+  text-align: center;
+}
+
+.div-login {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  max-width: 100rem;
+  height: 63rem;
+  margin: 0 auto;
+  background-image: url("../../imagem/image-removebg-preview.png");
+  background-repeat: no-repeat;
+  background-size: 30rem;
+  background-position: left 10rem center;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: min(35rem, 100%);
+  margin-right: 5rem;
+  padding: 3rem;
+  background-color: var(--cor-fundo-tema);
+  border-radius: 1.2rem;
+  box-shadow: 0 10px 25px rgb(0 0 0 / 30%);
+}
+
+.login label {
+  display: block;
+  margin-bottom: 0.8rem;
+  color: var(--texto-principal);
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.login input[type="email"],
+.login input[type="password"] {
+  width: 100%;
+  margin-bottom: 2rem;
+  padding: 1.2rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.login input[type="email"]:focus,
+.login input[type="password"]:focus {
+  border-color: #2a2f42;
+  outline: none;
+  box-shadow: 0 0 5px rgb(0 123 255 / 20%);
+}
+
+.login input[type="submit"] {
+  width: 100%;
+  padding: 1.2rem;
+  border: 0;
+  border-radius: 6px;
+  background-color: #2a2f42;
+  color: #f0f0f0;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#iphone-diferentinho {
+  width: 30rem;
+}
+
+#comentarios {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 1.5rem;
+  border: 1.5px solid var(--texto-principal);
+  color: var(--texto-principal);
+  text-align: left;
+}
+
+@media (max-width: 700px) {
+  nav > ul {
+    padding: 1.8rem 1.5rem;
+  }
+
+  nav .nav-links {
+    gap: 1rem;
+  }
+
+  .fora {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .divisor {
+    width: 80%;
+    height: 0;
+    border-top: 0.5rem solid var(--header);
+    border-left: 0;
+  }
+
+  .div-login {
+    justify-content: center;
+    background-position: center 8rem;
+    background-size: 20rem;
+  }
+
+  .login {
+    align-self: flex-end;
+    margin: 0 1.5rem 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 1.4rem;
+  }
+
+  nav, ul {
+    padding: 1.5rem 1rem;
+  }
+
+  nav .nav-links {
+    gap: 0.7rem;
+  }
+
+  nav .nav-links a {
+    font-size: 1.15rem;
+  }
+}
